@@ -1,0 +1,232 @@
+:root[data-theme="dark"] {
+  --accent-color: #89b4fa;
+  --accent-color-light: rgba(137, 180, 250, 0.8);
+  --accent-color-lighter: rgba(137, 180, 250, 0.7);
+  --background-color: #1e1e2e;
+  --background-color-dark1: #313244;
+  --background-color-light: #313244;
+  --gloss-image-background-color: #313244;
+  --link-color: var(--accent-color);
+  --text-color: #cdd6f4;
+  --text-color-light1: #a6adc8;
+  --text-color-light2: #6c7086;
+  --text-color-light3: #7f849c;
+  --text-color-light4: #6c7086;
+  --reason-text-color: #bac2de;
+  --pronunciation-annotation-color: #cdd6f4;
+  --headword-text-color-rare: #d4dcf6;
+  --light-border-color: #313244;
+  --medium-border-color: #45475a;
+  --dark-border-color: #585b70;
+  --tag-text-color: #11111b;
+  --tag-border-color: transparent;
+  --tag-default-background-color: #cdd6f4;
+  --tag-name-background-color: #cba6f7;
+  --tag-expression-background-color: #f9e2af;
+  --tag-popular-background-color: #89b4fa;
+  --tag-frequent-background-color: #89dceb;
+  --tag-archaism-background-color: #eba0ac;
+  --tag-dictionary-background-color: #b4befe;
+  --tag-frequency-background-color: #a6e3a1;
+  --tag-part-of-speech-background-color: #cdd6f4;
+  --tag-search-background-color: #bac2de;
+  --tag-pronunciation-dictionary-background-color: #b4befe;
+  --sidebar-background-color: #181825;
+  --sidebar-button-background-color: transparent;
+  --sidebar-button-background-color-hover: #9399b2;
+  --sidebar-button-background-color-active: #7f849c;
+  --sidebar-button-danger-background-color: transparent;
+  --sidebar-button-danger-background-color-hover: #e27687;
+  --sidebar-button-danger-background-color-active: #de6175;
+  --sidebar-button-icon-color: #bac2de;
+  --sidebar-button-disabled-icon-color: #7f849c;
+  --sidebar-button-danger-icon-color: #eba0ac;
+  --scrollbar-thumb-color: #6c7086;
+  --scrollbar-track-color: #313244;
+  --scrollbar-inverse-thumb-color: #585b70;
+  --scrollbar-inverse-track-color: #cdd6f4;
+  --progress-bar-track-color: #313244;
+  --progress-bar-indicator-color: var(--accent-color);
+  --entry-current-indicator-color: var(--accent-color);
+  --notification-text-color: #cdd6f4;
+  --notification-background-color: #313244;
+  --notification-background-color-light: #9399b2;
+  --notification-background-color-lighter: #585b70;
+  --notification-shadow-color: rgba(255, 255, 255, 0.25);
+  --action-button-hover-color: #313244;
+  --action-button-active-color: #45475a;
+  --input-background-color: #313244;
+  --menu-item-hover-color: #45475a;
+  --menu-item-active-color: #45475a;
+  --shadow-color: rgba(0, 0, 0, 0.35);
+
+  .gloss-sc-ul li {
+    border-color: #7f849c;
+  }
+
+  button:hover:focus-visible,
+  button:hover:not(:focus-visible),
+  .button:hover:focus-visible,
+  .button:hover:not(:focus-visible),
+  button:active:focus-visible,
+  button:active:not(:focus-visible),
+  .button:active:focus-visible,
+  .button:active:not(:focus-visible) {
+    --button-current-content-color: #11111b;
+  }
+
+  span[data-sc-content="example-keyword"] {
+    color: #a6e3a1 !important;
+  }
+
+  span[data-sc-class="form-special"] {
+    color: #f38ba8 !important;
+  }
+
+  div[data-sc-class="extra-label"],
+  span[data-sc-content="attribution-footnote"] {
+    color: #7f849c !important;
+  }
+
+  span[data-sc-content="part-of-speech-info"],
+  span[data-sc-content="forms-label"] {
+    background-color: #a6adc8 !important;
+    color: #11111b !important;
+  }
+
+  span[data-sc-content="misc-info"] {
+    background-color: #eba0ac !important;
+    color: #11111b !important;
+  }
+
+  span[data-sc-content="field-info"] {
+    background-color: #cba6f7 !important;
+    color: #11111b !important;
+  }
+
+  span[data-sc-content="dialect-info"] {
+    background-color: #a6e3a1 !important;
+    color: #11111b !important;
+  }
+
+  span[data-sc-content="lang-source-wasei"] {
+    background-color: #fab387 !important;
+    color: #11111b !important;
+  }
+
+  div[data-sc-content="info-gloss"] {
+    border-color: #a6e3a1 !important;
+    background-color: color-mix(in srgb, #a6e3a1 5%, transparent) !important;
+  }
+
+  div[data-sc-content="sense-note"] {
+    border-color: #f9e2af !important;
+    background-color: color-mix(in srgb, #f9e2af 5%, transparent) !important;
+  }
+
+  div[data-sc-content="lang-source"] {
+    border-color: #cba6f7 !important;
+    background-color: color-mix(in srgb, #cba6f7 5%, transparent) !important;
+  }
+
+  div[data-sc-content="xref"] {
+    border-color: #74c7ec !important;
+    background-color: color-mix(in srgb, #74c7ec 5%, transparent) !important;
+    & span[data-sc-content="reference-label"] {
+      color: #74c7ec !important;
+    }
+  }
+
+  div[data-sc-content="antonym"] {
+    border-color: #eba0ac !important;
+    background-color: color-mix(in srgb, #eba0ac 5%, transparent) !important;
+    & span[data-sc-content="reference-label"] {
+      color: #eba0ac !important;
+    }
+  }
+
+  td[data-sc-class="form-pri"] > span {
+    color: #11111b !important;
+    background: radial-gradient(#a6e3a1 50%, white 100%) !important;
+  }
+
+  td[data-sc-class="form-irr"] > span {
+    color: #11111b !important;
+    background: radial-gradient(#eba0ac 50%, white 100%) !important;
+  }
+
+  td[data-sc-class="form-out"] > span,
+  td[data-sc-class="form-old"] > span {
+    color: #11111b !important;
+    background: radial-gradient(#74c7ec 50%, white 100%) !important;
+  }
+
+  td[data-sc-class="form-rare"] > span {
+    color: #11111b !important;
+    background: radial-gradient(#cba6f7 50%, white 100%) !important;
+  }
+
+  [data-dictionary^="新和英大辞典"] details summary {
+    color: #7f849c !important;
+  }
+
+  [data-dictionary^="新和英大辞典"] details summary:hover {
+    color: #9399b2 !important;
+  }
+
+  [data-dictionary^="新和英大辞典"] details > *:not(summary) {
+    border-left-color: #45475a !important;
+  }
+
+  [style*="color: rgb(229, 0, 127)"] {
+    color: #f5c2e7 !important;
+  }
+}
+
+[data-details^="JMdict Sense #"],
+[data-sc-content="attribution"],
+[data-sc-content="forms"]:has(ul),
+.gloss-sc-span[style="font-size: 0.5em; color: rgb(119, 119, 119); vertical-align: super; margin-left: -0.25em;"],
+[data-dictionary="KireiCake"] [data-category="default"].tag,
+[data-sc-content="attribution-footnote"],
+[data-dictionary^="Jitendex"] [data-sc-content="forms"],
+[data-dictionary="KireiCake"] [data-category="popular"].tag,
+[data-dictionary="どんなときどう使う"] .tag:first-child {
+  display: none;
+}
+
+.definition-item-inner.collapsible.collapsed {
+  max-height: calc(1em * var(--collapsible-definition-line-count) * var(--line-height) + 3px);
+}
+
+[data-dictionary^="Jitendex"] .definition-tag-list.tag-list {
+  height: 0;
+}
+
+[data-details="other surface forms and readings"].tag,
+.gloss-sc-table-container {
+  margin-bottom: 3px;
+}
+
+[style*="font-size: 130%"],
+.gloss-sc-ul[style*="font-size: 1.3em"],
+.gloss-sc-div[style*="font-size: 1.3em"],
+[style*="font-size: 1.2em"],
+div[data-sc-content="xref-content"],
+div[data-sc-content="antonym-content"] {
+  font-size: 1em !important;
+}
+
+[style*="font-size: 180%"] {
+  font-size: 1.5em !important;
+}
+
+.inflection-rule-chains {
+  display: flex;
+  gap: 5px;
+}
+
+div[data-sc-content="example-sentence-a"],
+div[data-sc-content="xref-content"] {
+  font-size: 1em !important;
+}

@@ -1,0 +1,313 @@
+watch_stylesheet: true
+watch_config: true
+debug: false
+update_check: true
+komorebi:
+  start_command: "komorebic start --whkd"
+  stop_command: "komorebic stop --whkd"
+  reload_command: "komorebic stop --whkd && komorebic start --whkd"
+bars:
+  primary-bar:
+    enabled: true
+    screens: ["*"]
+    class_name: "yasb-bar"
+    alignment:
+      position: "top"
+    animation:
+      enabled: true
+      duration: 800
+    blur_effect:
+      enabled: true
+      dark_mode: true
+      round_corners: true
+      round_corners_type: "normal"
+      border_color: "#45475a"
+    window_flags:
+      always_on_top: false
+      windows_app_bar: true
+    dimensions:
+      width: "100%"
+      height: 32
+    padding:
+      top: 5
+      left: 6
+      bottom: 0
+      right: 6
+    widgets:
+      left:
+        - "home"
+        - "komorebi_workspaces"
+      center:
+        - "clock"
+      right:
+        - "weather"
+        - "language"
+        - "media"
+        - "volume"
+        - "battery"
+        - "power_menu"
+widgets:
+  media:
+    type: "yasb.media.MediaWidget"
+    options:
+      label: "{title} · {artist}"
+      label_alt: "{title} · {artist}"
+      hide_empty: true
+      callbacks:
+        on_left: "toggle_media_menu"
+        on_middle: "toggle_play_pause"
+        on_right: "toggle_label"
+      max_field_size:
+        label: 16
+        label_alt: 16
+      show_thumbnail: true
+      controls_only: false
+      controls_left: false
+      controls_hide: true
+      thumbnail_edge_fade: true
+      thumbnail_padding: 32
+      scrolling_label:
+        enabled: true
+        update_interval_ms: 50
+        style: "left"
+        separator: " · "
+        label_padding: 2
+        ease_slope: 20
+        ease_pos: 0.8
+        ease_min: 0.5
+      icons:
+        prev_track: "\uf697"
+        next_track: "\uf696"
+        play: "\uf691"
+        pause: "\uf690"
+      media_menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "#45475a"
+        alignment: "right"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+        thumbnail_corner_radius: 8
+        thumbnail_size: 80
+        max_title_size: 100
+        max_artist_size: 100
+        show_source: true
+      media_menu_icons:
+        prev_track: "\uf697"
+        next_track: ""
+        play: ""
+        pause: ""
+  language:
+    type: "yasb.language.LanguageWidget"
+    options:
+      label: "<span>\uebd6</span> {lang[country_code]}"
+      label_alt: "<span>\uebd6</span> {lang[full_name]}"
+      update_interval: 5
+      callbacks:
+        on_left: "toggle_menu"
+        on_middle: "do_nothing"
+        on_right: "toggle_label"
+      language_menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "#45475a"
+        alignment: "right"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+        show_layout_icon: true
+        layout_icon: "\uebd6"
+  memory:
+    type: "yasb.memory.MemoryWidget"
+    options:
+      label: "MEM"
+      label_alt: "VIRT: {virtual_mem_percent}% SWAP: {swap_mem_percent}%"
+      update_interval: 5000
+      progress_bar:
+        enabled: true
+        size: 14
+        thickness: 2
+        color: "#91d7e3"
+        background_color: "#242739"
+      callbacks:
+        on_left: "toggle_label"
+      memory_thresholds:
+        low: 25
+        medium: 50
+        high: 90
+  cpu:
+    type: "yasb.cpu.CpuWidget"
+    options:
+      label: "CPU"
+      label_alt: "CPU {info[percent][total]:.0f}%"
+      progress_bar:
+        enabled: true
+        position: "left"
+        size: 14
+        thickness: 2
+        color: "#91d7e3"
+        background_color: "#242739"
+      update_interval: 2000
+      callbacks:
+        on_right: "do_nothing"
+  home:
+    type: "yasb.home.HomeWidget"
+    options:
+      label: "<span><img src='C:\\Ricing\\bunny.ico'/></span>"
+      menu_list:
+        - { title: "Home", path: "~" }
+        - { title: "Downloads", path: "~\\Downloads" }
+        - { title: "Documents", path: "~\\Documents" }
+        - { title: "Pictures", path: "~\\Pictures" }
+        - { title: "Videos", path: "~\\Videos" }
+      system_menu: true
+      power_menu: false
+      blur: true
+      border_color: "#45475a"
+  clock:
+    type: "yasb.clock.ClockWidget"
+    options:
+      label: "{%#I:%M %p}"
+      label_alt: "{%H:%M:%S}"
+      timezones: []
+      calendar:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "#45475a"
+        alignment: "center"
+        direction: "down"
+        show_holidays: true
+        country_code: "US"
+        subdivision: "CA"
+        holiday_color: "#f5c2e7"
+      callbacks:
+        on_left: "toggle_calendar"
+        on_right: "toggle_label"
+  komorebi_workspaces:
+    type: "komorebi.workspaces.WorkspaceWidget"
+    options:
+      label_offline: ""
+      label_workspace_btn: ""
+      label_workspace_active_btn: ""
+      label_workspace_populated_btn: ""
+      label_default_name: "{index}"
+      label_zero_index: false
+      hide_empty_workspaces: false
+      hide_if_offline: true
+  volume:
+    type: "yasb.volume.VolumeWidget"
+    options:
+      label: "<span>{icon}</span> {level}"
+      label_alt: "{level}"
+      volume_icons:
+        - "\ueb50"
+        - "\ueb4f"
+        - "\ueb4f"
+        - "\ueb51"
+        - "\ueb51"
+      callbacks:
+        on_left: "toggle_volume_menu"
+        on_right: "toggle_mute"
+      audio_menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "#45475a"
+        alignment: "center"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+  battery:
+    type: "yasb.battery.BatteryWidget"
+    options:
+      label: "<span>{icon}</span> {percent}%"
+      label_alt: "<span>{icon}</span> {percent}% | time: {time_remaining}"
+      update_interval: 5000
+      time_remaining_natural: False
+      hide_unsupported: True
+      charging_options:
+        icon_format: "{charging_icon}"
+        blink_charging_icon: false
+        blink_interval: 500
+      status_thresholds:
+        critical: 10
+        low: 25
+        medium: 75
+        high: 95
+        full: 100
+      status_icons:
+        icon_charging: "\uea33"
+        icon_critical: "\uea34"
+        icon_low: "\uea2f"
+        icon_medium: "\uea30"
+        icon_high: "\uea31"
+        icon_full: "\uea32"
+  power_menu:
+    type: "yasb.power_menu.PowerMenuWidget"
+    options:
+      label: "\ueb0d"
+      uptime: true
+      blur: false
+      blur_background: true
+      animation_duration: 200
+      button_row: 3
+      buttons:
+        shutdown: ["\ueb0d", "Shut Down"]
+        restart: ["\ueb16", "Restart"]
+        sleep: ["\uf684", "Sleep"]
+        signout: ["\uebA8", "Sign out"]
+        lock: ["\ueae2", "Lock"]
+        cancel: ["\uea2e", "Close"]
+  weather:
+    type: "yasb.weather.WeatherWidget"
+    options:
+      label: "<span>{icon}</span> {temp}"
+      label_alt: "{location}: Min {min_temp}, Max {max_temp}, Humidity {humidity}"
+      api_key: "$Env:YASB_WEATHER_API_KEY"
+      location: "San Diego, California"
+      # location: "$Env:YASB_WEATHER_LOCATION"
+      show_alerts: true
+      update_interval: 600
+      hide_decimal: true
+      units: "imperial"
+      icons:
+        sunnyDay: "\ueb30"
+        clearNight: "\ueaf8"
+        cloudyDay: "\uea76"
+        cloudyNight: "\uea76"
+        rainyDay: "\uea72"
+        rainyNight: "\uea72"
+        snowyDay: "\uea73"
+        snowyNight: "\uea73"
+        blizzardDay: "\uea73"
+        blizzardNight: "\uea73"
+        foggyDay: "\uecD9"
+        foggyNight: "\uecD9"
+        thunderstormDay: "\uea74"
+        thunderstormNight: "\uea74"
+        default: "\ueb30"
+      callbacks:
+        on_left: "toggle_card"
+        on_middle: "do_nothing"
+        on_right: "toggle_label"
+      weather_card:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "#45475a"
+        alignment: "right"
+        direction: "down"
+        icon_size: 64
+        show_hourly_forecast: true
+        time_format: "24h"
+        hourly_point_spacing: 76
+        hourly_icon_size: 32
+        icon_smoothing: true
+        temp_line_width: 2
+        current_line_color: "#89b4fa"
+        current_line_width: 2
+        current_line_style: "dot"
