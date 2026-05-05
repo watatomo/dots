@@ -1,0 +1,294 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.35/schema.json",
+  "app_specific_configuration_path": "$Env:KOMOREBI_CONFIG_HOME/applications.json",
+  "window_hiding_behaviour": "Cloak",
+  "cross_monitor_move_behaviour": "Insert",
+  "default_workspace_padding": 5,
+  "default_container_padding": 5,
+  "border": false,
+  "border_width": 4,
+  "border_offset": -1,
+  "border_style": "Rounded",
+  "border_colours": {
+    "single": "#89b4fa",
+    "stack": "#89b4fa",
+    "monocle": "#89b4fa",
+    "floating": "#89b4fa",
+    "unfocused": "#9399b2"
+  },
+  "stackbar": {
+    "height": 20,
+    "mode": "OnStack",
+    "tabs": {
+      "background": "#313244",
+      "width": 150,
+      "font_size": 20,
+      "focused_text": "#89b4fa",
+      "unfocused_text": "#cdd6f4"
+    }
+  },
+  "animation": {
+    "enabled": true,
+    "duration": 250,
+    "fps": 60,
+    "style": {
+      "movement": "EaseOutBack",
+      "transparency": "Linear"
+    }
+  },
+  "manage_rules": [
+    {
+      "kind": "Title",
+      "id": "main - hydrus ",
+      "matching_strategy": "StartsWith"
+    }
+  ],
+  "ignore_rules": [
+    {
+      "kind": "Title",
+      "id": " - hydrus ",
+      "matching_strategy": "Contains"
+    },
+    {
+      "kind": "Title",
+      "id": "hydrus client booting",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "waifu2x-gui",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "CLIP STUDIO ACCOUNT",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "PNG export settings",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Class",
+      "id": "742DEA58-ED6B-4402-BC11-20DFC6D08040-6571DDC4-B3AA-45e4-9D35-57C0C1E90AD5",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Class",
+      "id": "PSFloatC",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Class",
+      "id": "PSExport_WindowClass",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Layer Styles",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "i_view64.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "ShareX.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Spotify Installer",
+      "matching_strategy": "StartsWith"
+    },
+    {
+      "kind": "Title",
+      "id": "Ryujinx Console",
+      "matching_strategy": "StartsWith"
+    },
+    {
+      "kind": "Exe",
+      "id": "COM3D2.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "COM3D2x64.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "CM3D2.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "CM3D2x64.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "Surfshark.exe",
+      "matching_strategy": "Equals"
+    }
+  ],
+  "floating_applications": [
+    {
+      "kind": "Exe",
+      "id": "explorer.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "Photos.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "ImageToIcon.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "7zFM.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Browser Toolbox",
+      "matching_strategy": "EndsWith"
+    },
+    {
+      "kind": "Title",
+      "id": "Developer Tools",
+      "matching_strategy": "StartsWith"
+    },
+    {
+      "kind": "Exe",
+      "id": "PowerToys",
+      "matching_strategy": "StartsWith"
+    },
+    {
+      "kind": "Exe",
+      "id": "imgdanke.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "Notepad.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "anki.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "qbittorrent.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "mpv.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "FontBase.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Edit metadata -",
+      "matching_strategy": "StartsWith"
+    },
+    {
+      "kind": "Title",
+      "id": "Obok DeDRM v",
+      "matching_strategy": "StartsWith"
+    },
+    {
+      "kind": "Title",
+      "id": "Adding books",
+      "matching_strategy": "StartsWith"
+    },
+    {
+      "kind": "Title",
+      "id": "Downloading metadata",
+      "matching_strategy": "StartsWith"
+    },
+    {
+      "kind": "Exe",
+      "id": "calibre-parallel.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "WindowsTerminal.exe",
+      "matching_strategy": "Equals"
+    }
+  ],
+  "tray_and_multi_window_applications": [
+    {
+      "kind": "Exe",
+      "id": "hydrus_client.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "FontBase.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "calibre.exe",
+      "matching_strategy": "Equals"
+    }
+  ],
+  "monitors": [
+    {
+      "workspaces": [
+        {
+          "name": "1",
+          "layout": "BSP"
+        },
+        {
+          "name": "2",
+          "layout": "BSP"
+        },
+        {
+          "name": "3",
+          "layout": "Columns"
+        },
+        {
+          "name": "4",
+          "layout": "BSP"
+        },
+        {
+          "name": "5",
+          "layout": "BSP"
+        }
+      ]
+    },
+    {
+      "workspaces": [
+        {
+          "name": "6",
+          "layout": "UltrawideVerticalStack"
+        },
+        {
+          "name": "7",
+          "layout": "UltrawideVerticalStack"
+        },
+        {
+          "name": "8",
+          "layout": "UltrawideVerticalStack"
+        }
+      ]
+    }
+  ]
+}

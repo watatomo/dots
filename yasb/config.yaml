@@ -16,12 +16,12 @@ bars:
     animation:
       enabled: true
       duration: 800
-    blur_effect:
-      enabled: true
-      dark_mode: true
-      round_corners: true
-      round_corners_type: "normal"
-      border_color: "#45475a"
+    # blur_effect:
+    #   enabled: true
+    #   dark_mode: true
+    #   round_corners: true
+    #   round_corners_type: "normal"
+    #   border_color: "#45475a"
     window_flags:
       always_on_top: false
       windows_app_bar: true

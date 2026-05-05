@@ -59,6 +59,11 @@
   --menu-item-hover-color: #45475a;
   --menu-item-active-color: #45475a;
   --shadow-color: rgba(0, 0, 0, 0.35);
+  --atamadaka: #f38ba8;
+  --heiban: #94e2d5;
+  --nakadaka: #fab387;
+  --odaka: #a6e3a1;
+  --kifuku: #cba6f7;
 
   .gloss-sc-ul li {
     border-color: #7f849c;
@@ -183,16 +188,11 @@
   }
 }
 
-[data-details^="JMdict Sense #"],
-[data-sc-content="attribution"],
-[data-sc-content="forms"]:has(ul),
-.gloss-sc-span[style="font-size: 0.5em; color: rgb(119, 119, 119); vertical-align: super; margin-left: -0.25em;"],
-[data-dictionary="KireiCake"] [data-category="default"].tag,
-[data-sc-content="attribution-footnote"],
+[data-dictionary^="Jitendex"] [data-sc-content="attribution"],
 [data-dictionary^="Jitendex"] [data-sc-content="forms"],
-[data-dictionary="KireiCake"] [data-category="popular"].tag,
-[data-dictionary="どんなときどう使う"] .tag:first-child {
-  display: none;
+[data-dictionary^="どんなとき"] .tag:first-child,
+[data-dictionary^="Living Japanese Slang"] .tag:first-child {
+  display: none !important;
 }
 
 .definition-item-inner.collapsible.collapsed {
@@ -229,4 +229,99 @@ div[data-sc-content="antonym-content"] {
 div[data-sc-content="example-sentence-a"],
 div[data-sc-content="xref-content"] {
   font-size: 1em !important;
+}
+
+/* Heiban */
+html:has(
+  .entry-current .headword[data-is-primary="true"][data-pronunciation-categories^="heiban"]
+) {
+  --pitch-tag-color: var(--heiban);
+}
+
+.pronunciation:has(.pronunciation-downstep-notation[data-downstep-position="0"]) {
+  --pronunciation-annotation-color: var(--heiban);
+}
+
+.pronunciation:has(.pronunciation-downstep-notation[data-downstep-position="0"])
+  .pronunciation-downstep-notation-number {
+  color: var(--heiban);
+}
+
+/* Atamadaka */
+html:has(
+  .entry-current .headword[data-is-primary="true"][data-pronunciation-categories^="atamadaka"]
+) {
+  --pitch-tag-color: var(--atamadaka);
+}
+
+.pronunciation:has(.pronunciation-downstep-notation[data-downstep-position="1"]) {
+  --pronunciation-annotation-color: var(--atamadaka);
+}
+
+.pronunciation:has(.pronunciation-downstep-notation[data-downstep-position="1"])
+  .pronunciation-downstep-notation-number {
+  color: var(--atamadaka);
+}
+
+/* Nakadaka */
+html:has(
+  .entry-current .headword[data-is-primary="true"][data-pronunciation-categories^="nakadaka"]
+) {
+  --pitch-tag-color: var(--nakadaka);
+}
+
+.pronunciation:has(.pronunciation-mora:not(:last-child)[data-pitch-next="low"]):has(
+    .pronunciation-downstep-notation:not([data-downstep-position="1"])
+  ) {
+  --pronunciation-annotation-color: var(--nakadaka) !important;
+}
+
+.pronunciation:has(.pronunciation-mora:not(:last-child)[data-pitch-next="low"]):has(
+    .pronunciation-downstep-notation:not([data-downstep-position="1"])
+  )
+  .pronunciation-downstep-notation-number {
+  color: var(--nakadaka) !important;
+}
+
+/* Odaka */
+html:has(.entry-current .headword[data-is-primary="true"][data-pronunciation-categories^="odaka"]) {
+  --pitch-tag-color: var(--odaka);
+}
+
+.pronunciation:has(.pronunciation-mora:last-child[data-pitch-next="low"]):not(
+    :has(.pronunciation-downstep-notation[data-downstep-position="1"])
+  ) {
+  --pronunciation-annotation-color: var(--odaka);
+}
+
+.pronunciation:has(.pronunciation-mora:last-child[data-pitch-next="low"]):not(
+    :has(.pronunciation-downstep-notation[data-downstep-position="1"])
+  )
+  .pronunciation-downstep-notation-number {
+  color: var(--odaka);
+}
+
+/* Kifuku */
+html:has(
+  .entry-current .headword[data-is-primary="true"][data-pronunciation-categories^="kifuku"]
+) {
+  --pitch-tag-color: var(--kifuku);
+}
+
+/* Nasal Mora */
+.pronunciation-nasal-indicator {
+  border: 0.1em solid var(--nasal-color);
+  width: 0.35em;
+  height: 0.35em;
+  right: -0.1em;
+  top: 0.225em;
+}
+
+/* Devoiced Mora */
+.pronunciation-devoice-indicator {
+  display: none;
+}
+
+.pronunciation-mora[data-devoice="true"] {
+  color: var(--devoiced-color);
 }

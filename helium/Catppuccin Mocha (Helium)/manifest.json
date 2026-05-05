@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Catppuccin Helium Theme - Mocha",
+  "description": "Soothing pastel theme for Helium - Catppuccin Mocha",
+  "version": "1.0.0",
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "theme": {
+    "colors": {
+      "frame": [17, 17, 27],
+      "frame_inactive": [17, 17, 27],
+      "frame_incognito": [69, 71, 90],
+      "frame_incognito_inactive": [69, 71, 90],
+      "toolbar": [17, 17, 27],
+      "toolbar_button_icon": [205, 214, 244],
+      "control_background": [17, 17, 27],
+      "tab_text": [205, 214, 244],
+      "background_tab": [17, 17, 27],
+      "tab_background_text": [166, 173, 200],
+      "tab_background_text_inactive": [147, 153, 178],
+      "tab_background_text_incognito": [166, 173, 200],
+      "tab_background_text_incognito_inactive": [147, 153, 178],
+      "bookmark_text": [205, 214, 244],
+      "omnibox_background": [30, 30, 46],
+      "omnibox_text": [205, 214, 244],
+      "ntp_background": [30, 30, 46],
+      "ntp_text": [205, 214, 244],
+      "ntp_link": [137, 180, 250],
+      "ntp_header": [137, 180, 250],
+      "ntp_section_text": [205, 214, 244],
+      "ntp_section_link": [137, 180, 250]
+    }
+  }
+}

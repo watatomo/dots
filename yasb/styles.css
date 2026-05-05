@@ -57,13 +57,14 @@
   padding: 0;
   margin: 0;
   background-color: var(--base);
+  border-radius: 10px;
+  border: 1.5px solid var(--surface1);
 }
 
 /* global context menu style */
 .context-menu,
 .context-menu .menu-checkbox {
   background-color: var(--surface0);
-  border: none;
   padding: 4px 0px;
   font-family: "Inter";
   font-size: 12px;
