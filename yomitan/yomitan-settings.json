@@ -1,0 +1,1139 @@
+{
+    "version": 0,
+    "date": "2026-08-07 01:48:02",
+    "url": "chrome-extension://likgccmbimhjbgkjambclfkhldnlhbnn/",
+    "manifest": {
+        "action": {
+            "default_icon": {
+                "16": "images/icon16.png",
+                "19": "images/icon19.png",
+                "32": "images/icon32.png",
+                "38": "images/icon38.png",
+                "48": "images/icon48.png",
+                "64": "images/icon64.png",
+                "128": "images/icon128.png"
+            },
+            "default_popup": "action-popup.html",
+            "default_title": "Yomitan"
+        },
+        "author": {
+            "email": "themoeway@googlegroups.com"
+        },
+        "background": {
+            "service_worker": "sw.js",
+            "type": "module"
+        },
+        "commands": {
+            "openInfoPage": {
+                "description": "Open the info page"
+            },
+            "openPopupWindow": {
+                "description": "Open the popup window"
+            },
+            "openSearchPage": {
+                "description": "Open the search page in a new tab",
+                "suggested_key": {
+                    "default": "Alt+Insert"
+                }
+            },
+            "openSearchPageCurrentTab": {
+                "description": "Open the search page in the current tab"
+            },
+            "openSettingsPage": {
+                "description": "Open the settings page"
+            },
+            "toggleTextScanning": {
+                "description": "Toggle text scanning on/off",
+                "suggested_key": {
+                    "default": "Alt+Delete"
+                }
+            }
+        },
+        "content_scripts": [
+            {
+                "all_frames": true,
+                "js": [
+                    "js/app/content-script-wrapper.js"
+                ],
+                "match_about_blank": true,
+                "match_origin_as_fallback": true,
+                "matches": [
+                    "http://*/*",
+                    "https://*/*",
+                    "file://*/*"
+                ],
+                "run_at": "document_idle"
+            }
+        ],
+        "content_security_policy": {
+            "extension_pages": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; img-src blob: 'self'; style-src 'self' 'unsafe-inline'; media-src *; connect-src *",
+            "sandbox": "sandbox allow-scripts; default-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'unsafe-inline'"
+        },
+        "description": "Popup dictionary for language learning",
+        "host_permissions": [
+            "<all_urls>"
+        ],
+        "icons": {
+            "16": "images/icon16.png",
+            "19": "images/icon19.png",
+            "32": "images/icon32.png",
+            "38": "images/icon38.png",
+            "48": "images/icon48.png",
+            "64": "images/icon64.png",
+            "128": "images/icon128.png"
+        },
+        "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuFMG+/vjX2le7bR1dzuuLZwLxycxTxo033lLgMvO2BYQeQjIxhHazptr+34TX9oN71jnDxc11MWIl/pJPXVhdWyawrVNX9AVSz0kqOcvv0TqJAoVofLeAtRAeANjGjIM6QN46SAq9RAsKh60+0ZxYVWasFHB0gdbIaucJE54sXcUOGBsCah/ZziZMsunEhWpUC0nKT3eW9/eRQVHMBVFQ06R1luESf2f0EXbiS70smI0j3jb0xxWnbHQS8Bz20WZi0/kcysCmU/suMKCzdRXENWVcPG2xpcIYbSXBUHuP25jr3qElq5VEqeIUeHdYHd0GbkhlHPG0Cuo38q6D4lQ5wIDAQAB",
+        "manifest_version": 3,
+        "minimum_chrome_version": "102.0.0.0",
+        "name": "Yomitan Popup Dictionary",
+        "omnibox": {
+            "keyword": "yomi"
+        },
+        "optional_permissions": [
+            "clipboardRead",
+            "nativeMessaging"
+        ],
+        "options_ui": {
+            "open_in_tab": true,
+            "page": "settings.html"
+        },
+        "permissions": [
+            "storage",
+            "clipboardWrite",
+            "unlimitedStorage",
+            "declarativeNetRequest",
+            "scripting",
+            "offscreen",
+            "contextMenus"
+        ],
+        "sandbox": {
+            "pages": [
+                "template-renderer.html"
+            ]
+        },
+        "update_url": "https://clients2.google.com/service/update2/crx",
+        "version": "26.7.29.0",
+        "web_accessible_resources": [
+            {
+                "matches": [
+                    "<all_urls>"
+                ],
+                "resources": [
+                    "popup.html",
+                    "template-renderer.html",
+                    "js/*",
+                    "lib/resvg.wasm"
+                ]
+            }
+        ]
+    },
+    "environment": {
+        "browser": "chrome",
+        "platform": {
+            "os": "win"
+        }
+    },
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+    "permissions": {
+        "origins": [
+            "<all_urls>",
+            "file:///*",
+            "http://*/*",
+            "https://*/*"
+        ],
+        "permissions": [
+            "clipboardRead",
+            "clipboardWrite",
+            "contextMenus",
+            "nativeMessaging",
+            "storage",
+            "unlimitedStorage",
+            "declarativeNetRequest",
+            "scripting",
+            "offscreen"
+        ]
+    },
+    "options": {
+        "version": 77,
+        "profiles": [
+            {
+                "name": "Default",
+                "conditionGroups": [],
+                "options": {
+                    "general": {
+                        "enable": true,
+                        "resultOutputMode": "group",
+                        "debugInfo": false,
+                        "maxResults": 8,
+                        "showAdvanced": true,
+                        "popupDisplayMode": "default",
+                        "popupWidth": 400,
+                        "popupHeight": 250,
+                        "popupHorizontalOffset": 0,
+                        "popupVerticalOffset": 10,
+                        "popupHorizontalOffset2": 10,
+                        "popupVerticalOffset2": 0,
+                        "popupHorizontalTextPosition": "below",
+                        "popupVerticalTextPosition": "before",
+                        "popupScalingFactor": 1,
+                        "popupScaleRelativeToPageZoom": false,
+                        "popupScaleRelativeToVisualViewport": true,
+                        "showGuide": false,
+                        "compactTags": true,
+                        "glossaryLayoutMode": "compact",
+                        "mainDictionary": "JMdict",
+                        "popupTheme": "dark",
+                        "popupOuterTheme": "site",
+                        "customPopupCss": ":root[data-theme=\"dark\"] {\n  --accent-color: #89b4fa;\n  --accent-color-light: rgba(137, 180, 250, 0.8);\n  --accent-color-lighter: rgba(137, 180, 250, 0.7);\n  --background-color: #1e1e2e;\n  --background-color-dark1: #313244;\n  --background-color-light: #313244;\n  --gloss-image-background-color: #313244;\n  --link-color: var(--accent-color);\n  --text-color: #cdd6f4;\n  --text-color-light1: #a6adc8;\n  --text-color-light2: #6c7086;\n  --text-color-light3: #7f849c;\n  --text-color-light4: #6c7086;\n  --reason-text-color: #bac2de;\n  --pronunciation-annotation-color: #cdd6f4;\n  --headword-text-color-rare: #d4dcf6;\n  --light-border-color: #313244;\n  --medium-border-color: #45475a;\n  --dark-border-color: #585b70;\n  --tag-text-color: #11111b;\n  --tag-border-color: transparent;\n  --tag-default-background-color: #cdd6f4;\n  --tag-name-background-color: #cba6f7;\n  --tag-expression-background-color: #f9e2af;\n  --tag-popular-background-color: #89b4fa;\n  --tag-frequent-background-color: #89dceb;\n  --tag-archaism-background-color: #eba0ac;\n  --tag-dictionary-background-color: #b4befe;\n  --tag-frequency-background-color: #a6e3a1;\n  --tag-part-of-speech-background-color: #cdd6f4;\n  --tag-search-background-color: #bac2de;\n  --tag-pronunciation-dictionary-background-color: #b4befe;\n  --sidebar-background-color: #181825;\n  --sidebar-button-background-color: transparent;\n  --sidebar-button-background-color-hover: #9399b2;\n  --sidebar-button-background-color-active: #7f849c;\n  --sidebar-button-danger-background-color: transparent;\n  --sidebar-button-danger-background-color-hover: #e27687;\n  --sidebar-button-danger-background-color-active: #de6175;\n  --sidebar-button-icon-color: #bac2de;\n  --sidebar-button-disabled-icon-color: #7f849c;\n  --sidebar-button-danger-icon-color: #eba0ac;\n  --scrollbar-thumb-color: #6c7086;\n  --scrollbar-track-color: #313244;\n  --scrollbar-inverse-thumb-color: #585b70;\n  --scrollbar-inverse-track-color: #cdd6f4;\n  --progress-bar-track-color: #313244;\n  --progress-bar-indicator-color: var(--accent-color);\n  --entry-current-indicator-color: var(--accent-color);\n  --notification-text-color: #cdd6f4;\n  --notification-background-color: #313244;\n  --notification-background-color-light: #9399b2;\n  --notification-background-color-lighter: #585b70;\n  --notification-shadow-color: rgba(255, 255, 255, 0.25);\n  --action-button-hover-color: #313244;\n  --action-button-active-color: #45475a;\n  --input-background-color: #313244;\n  --menu-item-hover-color: #45475a;\n  --menu-item-active-color: #45475a;\n  --shadow-color: rgba(0, 0, 0, 0.35);\n  --atamadaka: #f38ba8;\n  --heiban: #94e2d5;\n  --nakadaka: #fab387;\n  --odaka: #a6e3a1;\n  --kifuku: #cba6f7;\n\n  .gloss-sc-ul li {\n    border-color: #7f849c;\n  }\n\n  button:hover:focus-visible,\n  button:hover:not(:focus-visible),\n  .button:hover:focus-visible,\n  .button:hover:not(:focus-visible),\n  button:active:focus-visible,\n  button:active:not(:focus-visible),\n  .button:active:focus-visible,\n  .button:active:not(:focus-visible) {\n    --button-current-content-color: #11111b;\n  }\n\n  span[data-sc-content=\"example-keyword\"] {\n    color: #a6e3a1 !important;\n  }\n\n  span[data-sc-class=\"form-special\"] {\n    color: #f38ba8 !important;\n  }\n\n  div[data-sc-class=\"extra-label\"],\n  span[data-sc-content=\"attribution-footnote\"] {\n    color: #7f849c !important;\n  }\n\n  span[data-sc-content=\"part-of-speech-info\"],\n  span[data-sc-content=\"forms-label\"] {\n    background-color: #a6adc8 !important;\n    color: #11111b !important;\n  }\n\n  span[data-sc-content=\"misc-info\"] {\n    background-color: #eba0ac !important;\n    color: #11111b !important;\n  }\n\n  span[data-sc-content=\"field-info\"] {\n    background-color: #cba6f7 !important;\n    color: #11111b !important;\n  }\n\n  span[data-sc-content=\"dialect-info\"] {\n    background-color: #a6e3a1 !important;\n    color: #11111b !important;\n  }\n\n  span[data-sc-content=\"lang-source-wasei\"] {\n    background-color: #fab387 !important;\n    color: #11111b !important;\n  }\n\n  div[data-sc-content=\"info-gloss\"] {\n    border-color: #a6e3a1 !important;\n    background-color: color-mix(in srgb, #a6e3a1 5%, transparent) !important;\n  }\n\n  div[data-sc-content=\"sense-note\"] {\n    border-color: #f9e2af !important;\n    background-color: color-mix(in srgb, #f9e2af 5%, transparent) !important;\n  }\n\n  div[data-sc-content=\"lang-source\"] {\n    border-color: #cba6f7 !important;\n    background-color: color-mix(in srgb, #cba6f7 5%, transparent) !important;\n  }\n\n  div[data-sc-content=\"xref\"] {\n    border-color: #74c7ec !important;\n    background-color: color-mix(in srgb, #74c7ec 5%, transparent) !important;\n    & span[data-sc-content=\"reference-label\"] {\n      color: #74c7ec !important;\n    }\n  }\n\n  div[data-sc-content=\"antonym\"] {\n    border-color: #eba0ac !important;\n    background-color: color-mix(in srgb, #eba0ac 5%, transparent) !important;\n    & span[data-sc-content=\"reference-label\"] {\n      color: #eba0ac !important;\n    }\n  }\n\n  td[data-sc-class=\"form-pri\"] > span {\n    color: #11111b !important;\n    background: radial-gradient(#a6e3a1 50%, white 100%) !important;\n  }\n\n  td[data-sc-class=\"form-irr\"] > span {\n    color: #11111b !important;\n    background: radial-gradient(#eba0ac 50%, white 100%) !important;\n  }\n\n  td[data-sc-class=\"form-out\"] > span,\n  td[data-sc-class=\"form-old\"] > span {\n    color: #11111b !important;\n    background: radial-gradient(#74c7ec 50%, white 100%) !important;\n  }\n\n  td[data-sc-class=\"form-rare\"] > span {\n    color: #11111b !important;\n    background: radial-gradient(#cba6f7 50%, white 100%) !important;\n  }\n\n  [data-dictionary^=\"新和英大辞典\"] details summary {\n    color: #7f849c !important;\n  }\n\n  [data-dictionary^=\"新和英大辞典\"] details summary:hover {\n    color: #9399b2 !important;\n  }\n\n  [data-dictionary^=\"新和英大辞典\"] details > *:not(summary) {\n    border-left-color: #45475a !important;\n  }\n\n  [style*=\"color: rgb(229, 0, 127)\"] {\n    color: #f5c2e7 !important;\n  }\n\n  [style*=\"color: rgb(255, 255, 255)\"][style*=\"background-color: rgb(92, 107, 192)\"] {\n    color: #11111b !important;\n    background-color: #cba6f7 !important;\n  }\n\n  [style*=\"color: rgb(255, 255, 255)\"][style*=\"background-color: rgb(76, 175, 80)\"] {\n    background-color: #a6e3a1 !important;\n    color: #11111b !important;\n  }\n\n  [style*=\"color: rgb(224, 224, 224)\"] {\n    color: #cdd6f4 !important;\n  }\n}\n\n[data-dictionary^=\"Jitendex\"] [data-sc-content=\"attribution\"],\n[data-dictionary^=\"Jitendex\"] [data-sc-content=\"forms\"],\n[data-dictionary^=\"どんなとき\"] .tag:first-child,\n[data-dictionary^=\"Scripting Japan (Slang)\"] .gloss-sc-div:has(> .gloss-link),\n[data-sc-content=\"attribution-footnote\"],\n[data-dictionary^=\"Scripting Japan (Slang)\"] [style=\"font-weight: bold; font-size: 1.2em; color: rgb(224, 224, 224); margin-bottom: 10px;\"],\n[data-dictionary^=\"JMdict\"] .tag[title^=\"JMdict Sense\"],\n[data-dictionary^=\"JMdict\"]:has(.tag[title=\"other surface forms and readings\"]) {\n  display: none !important;\n}\n\n.definition-item-inner.collapsible.collapsed {\n  max-height: calc(1em * var(--collapsible-definition-line-count) * var(--line-height) + 3px);\n}\n\n[data-dictionary^=\"Jitendex\"] .definition-tag-list.tag-list {\n  height: 0;\n}\n\n[data-details=\"other surface forms and readings\"].tag,\n.gloss-sc-table-container {\n  margin-bottom: 3px;\n}\n\n[style*=\"font-size: 130%\"],\n.gloss-sc-ul[style*=\"font-size: 1.3em\"],\n.gloss-sc-div[style*=\"font-size: 1.3em\"],\n[style*=\"font-size: 1.2em\"],\ndiv[data-sc-content=\"xref-content\"],\ndiv[data-sc-content=\"antonym-content\"] {\n  font-size: 1em !important;\n}\n\n[style*=\"font-size: 180%\"] {\n  font-size: 1.5em !important;\n}\n\ndiv[data-sc-content=\"example-sentence-a\"],\ndiv[data-sc-content=\"xref-content\"] {\n  font-size: 1em !important;\n}\n\n[data-dictionary=\"Scripting Japan (Slang)\"] {\n  [style=\"margin-bottom: 12px;\"] {\n    margin-bottom: 0 !important;\n  }\n\n  [style=\"margin-left: 20px; margin-bottom: 14px;\"] {\n    margin-left: 0 !important;\n    margin-bottom: 0 !important;\n  }\n\n  [style=\"margin-top: 8px; margin-left: 8px; margin-bottom: 12px;\"] {\n    margin: 0 8px 0 !important;\n  }\n\n  [style=\"font-style: italic; font-size: 13px; margin-top: 6px; margin-left: 32px;\"] {\n    margin-top: 0 !important;\n  }\n\n  [style=\"font-size: 13px; margin-top: 8px; padding-left: 12px;\"] {\n    margin-top: 2px !important;\n    padding-left: 8px !important;\n    padding-right: 8px;\n  }\n}\n\n[style=\"font-weight: bold; font-size: 13px; color: rgb(255, 255, 255); background-color: rgb(92, 107, 192); padding: 3px 8px;\"] {\n  border-radius: var(--tag-border-radius);\n  font-size: var(--tag-font-size) !important;\n  font-weight: var(--tag-font-weight) !important;\n  padding: calc(2.5em / var(--font-size-no-units)) 0.375em calc(2.5em / var(--font-size-no-units))\n    0.375em !important;\n}\n\n[style=\"font-weight: bold; font-size: 12px; color: rgb(255, 255, 255); background-color: rgb(76, 175, 80); margin-right: 8px; padding: 2px 6px;\"] {\n  border-radius: var(--tag-border-radius);\n  font-size: var(--tag-font-size) !important;\n  font-weight: var(--tag-font-weight) !important;\n  padding: calc(2.5em / var(--font-size-no-units)) 0.375em calc(2.5em / var(--font-size-no-units))\n    0.375em !important;\n}\n\n/* Heiban */\nhtml:has(\n  .entry-current .headword[data-is-primary=\"true\"][data-pronunciation-categories^=\"heiban\"]\n) {\n  --pitch-tag-color: var(--heiban);\n}\n\n.pronunciation:has(.pronunciation-downstep-notation[data-downstep-position=\"0\"]) {\n  --pronunciation-annotation-color: var(--heiban);\n}\n\n.pronunciation:has(.pronunciation-downstep-notation[data-downstep-position=\"0\"])\n  .pronunciation-downstep-notation-number {\n  color: var(--heiban);\n}\n\n/* Atamadaka */\nhtml:has(\n  .entry-current .headword[data-is-primary=\"true\"][data-pronunciation-categories^=\"atamadaka\"]\n) {\n  --pitch-tag-color: var(--atamadaka);\n}\n\n.pronunciation:has(.pronunciation-downstep-notation[data-downstep-position=\"1\"]) {\n  --pronunciation-annotation-color: var(--atamadaka);\n}\n\n.pronunciation:has(.pronunciation-downstep-notation[data-downstep-position=\"1\"])\n  .pronunciation-downstep-notation-number {\n  color: var(--atamadaka);\n}\n\n/* Nakadaka */\nhtml:has(\n  .entry-current .headword[data-is-primary=\"true\"][data-pronunciation-categories^=\"nakadaka\"]\n) {\n  --pitch-tag-color: var(--nakadaka);\n}\n\n.pronunciation:has(.pronunciation-mora:not(:last-child)[data-pitch-next=\"low\"]):has(\n    .pronunciation-downstep-notation:not([data-downstep-position=\"1\"])\n  ) {\n  --pronunciation-annotation-color: var(--nakadaka) !important;\n}\n\n.pronunciation:has(.pronunciation-mora:not(:last-child)[data-pitch-next=\"low\"]):has(\n    .pronunciation-downstep-notation:not([data-downstep-position=\"1\"])\n  )\n  .pronunciation-downstep-notation-number {\n  color: var(--nakadaka) !important;\n}\n\n/* Odaka */\nhtml:has(.entry-current .headword[data-is-primary=\"true\"][data-pronunciation-categories^=\"odaka\"]) {\n  --pitch-tag-color: var(--odaka);\n}\n\n.pronunciation:has(.pronunciation-mora:last-child[data-pitch-next=\"low\"]):not(\n    :has(.pronunciation-downstep-notation[data-downstep-position=\"1\"])\n  ) {\n  --pronunciation-annotation-color: var(--odaka);\n}\n\n.pronunciation:has(.pronunciation-mora:last-child[data-pitch-next=\"low\"]):not(\n    :has(.pronunciation-downstep-notation[data-downstep-position=\"1\"])\n  )\n  .pronunciation-downstep-notation-number {\n  color: var(--odaka);\n}\n\n/* Kifuku */\nhtml:has(\n  .entry-current .headword[data-is-primary=\"true\"][data-pronunciation-categories^=\"kifuku\"]\n) {\n  --pitch-tag-color: var(--kifuku);\n}\n\n/* Nasal Mora */\n.pronunciation-nasal-indicator {\n  border: 0.1em solid var(--nasal-color);\n  width: 0.35em;\n  height: 0.35em;\n  right: -0.1em;\n  top: 0.225em;\n}\n\n/* Devoiced Mora */\n.pronunciation-devoice-indicator {\n  display: none;\n}\n\n.pronunciation-mora[data-devoice=\"true\"] {\n  color: var(--devoiced-color);\n}\n",
+                        "customPopupOuterCss": "iframe.yomitan-popup {\n  border-radius: 10px;\n  overflow: hidden;\n}\n\n",
+                        "enableWanakana": true,
+                        "showPitchAccentDownstepNotation": true,
+                        "showPitchAccentPositionNotation": false,
+                        "showPitchAccentGraph": true,
+                        "showIframePopupsInRootFrame": true,
+                        "useSecurePopupFrameUrl": true,
+                        "usePopupShadowDom": true,
+                        "usePopupWindow": false,
+                        "popupCurrentIndicatorMode": "bar-left",
+                        "popupActionBarVisibility": "auto",
+                        "popupActionBarLocation": "bottom",
+                        "frequencyDisplayMode": "split-tags-grouped",
+                        "termDisplayMode": "ruby",
+                        "sortFrequencyDictionary": "Jiten",
+                        "sortFrequencyDictionaryOrder": "ascending",
+                        "language": "ja",
+                        "enableContextMenuScanSelected": false,
+                        "stickySearchHeader": true,
+                        "fontFamily": "",
+                        "fontSize": 14,
+                        "lineHeight": "1.5",
+                        "showDebug": false,
+                        "averageFrequency": false,
+                        "enableYomitanApi": true,
+                        "yomitanApiServer": "http://127.0.0.1:19633",
+                        "yomitanApiAllowCssSanitizationBypass": false,
+                        "popupFullWidthPosition": "bottom"
+                    },
+                    "popupWindow": {
+                        "width": 400,
+                        "height": 250,
+                        "left": 0,
+                        "top": 0,
+                        "useLeft": false,
+                        "useTop": false,
+                        "windowType": "popup",
+                        "windowState": "normal"
+                    },
+                    "audio": {
+                        "enabled": true,
+                        "volume": 100,
+                        "autoPlay": false,
+                        "sources": [
+                            {
+                                "type": "custom-json",
+                                "url": "http://127.0.0.1:5050/?term={term}&reading={reading}",
+                                "voice": ""
+                            },
+                            {
+                                "type": "jpod101",
+                                "url": "",
+                                "voice": ""
+                            }
+                        ],
+                        "fallbackSoundType": "click",
+                        "enableDefaultAudioSources": true
+                    },
+                    "scanning": {
+                        "inputs": [
+                            {
+                                "include": "shift",
+                                "exclude": "mouse0",
+                                "types": {
+                                    "mouse": true,
+                                    "touch": false,
+                                    "pen": false
+                                },
+                                "options": {
+                                    "showAdvanced": false,
+                                    "searchTerms": true,
+                                    "searchKanji": true,
+                                    "scanOnTouchMove": true,
+                                    "scanOnPenHover": true,
+                                    "scanOnPenPress": true,
+                                    "scanOnPenRelease": false,
+                                    "preventTouchScrolling": false,
+                                    "scanOnPenMove": true,
+                                    "scanOnPenReleaseHover": false,
+                                    "scanOnTouchPress": false,
+                                    "scanOnTouchRelease": false,
+                                    "preventPenScrolling": false,
+                                    "scanOnTouchTap": true,
+                                    "minimumTouchTime": 0
+                                }
+                            },
+                            {
+                                "include": "",
+                                "exclude": "",
+                                "types": {
+                                    "mouse": false,
+                                    "touch": true,
+                                    "pen": true
+                                },
+                                "options": {
+                                    "showAdvanced": false,
+                                    "searchTerms": true,
+                                    "searchKanji": true,
+                                    "scanOnTouchMove": true,
+                                    "scanOnPenHover": true,
+                                    "scanOnPenPress": true,
+                                    "scanOnPenRelease": false,
+                                    "preventTouchScrolling": true,
+                                    "scanOnPenMove": true,
+                                    "scanOnPenReleaseHover": false,
+                                    "scanOnTouchPress": false,
+                                    "scanOnTouchRelease": false,
+                                    "preventPenScrolling": true,
+                                    "scanOnTouchTap": true,
+                                    "minimumTouchTime": 0
+                                }
+                            }
+                        ],
+                        "preventMiddleMouse": {
+                            "onWebPages": false,
+                            "onPopupPages": false,
+                            "onSearchPages": false,
+                            "onSearchQuery": false,
+                            "onTextHover": null
+                        },
+                        "selectText": true,
+                        "alphanumeric": false,
+                        "autoHideResults": false,
+                        "delay": 20,
+                        "hideDelay": 0,
+                        "length": 16,
+                        "deepDomScan": true,
+                        "popupNestingMaxDepth": 3,
+                        "enablePopupSearch": false,
+                        "enableOnPopupExpressions": false,
+                        "enableOnSearchPage": true,
+                        "enableSearchTags": false,
+                        "layoutAwareScan": true,
+                        "matchTypePrefix": false,
+                        "hidePopupOnCursorExit": false,
+                        "hidePopupOnCursorExitDelay": 0,
+                        "normalizeCssZoom": true,
+                        "scanWithoutMousemove": true,
+                        "scanResolution": "character",
+                        "preventBackForward": {
+                            "onTextHover": null,
+                            "onWebPages": false,
+                            "onPopupPages": false,
+                            "onSearchPages": false,
+                            "onSearchQuery": false
+                        },
+                        "reducedMotionScrolling": false,
+                        "reducedMotionScrollingScale": 1,
+                        "reducedMotionScrollingSwipeThreshold": 40
+                    },
+                    "translation": {
+                        "textReplacements": {
+                            "searchOriginal": true,
+                            "groups": [
+                                [
+                                    {
+                                        "pattern": "1|１",
+                                        "ignoreCase": false,
+                                        "replacement": "一"
+                                    },
+                                    {
+                                        "pattern": "2|２",
+                                        "ignoreCase": false,
+                                        "replacement": "二"
+                                    },
+                                    {
+                                        "pattern": "3|３",
+                                        "ignoreCase": false,
+                                        "replacement": "三"
+                                    },
+                                    {
+                                        "pattern": "4|４",
+                                        "ignoreCase": false,
+                                        "replacement": "四"
+                                    },
+                                    {
+                                        "pattern": "5|５",
+                                        "ignoreCase": false,
+                                        "replacement": "五"
+                                    },
+                                    {
+                                        "pattern": "6|６",
+                                        "ignoreCase": false,
+                                        "replacement": "六"
+                                    },
+                                    {
+                                        "pattern": "7|７",
+                                        "ignoreCase": false,
+                                        "replacement": "七"
+                                    },
+                                    {
+                                        "pattern": "8|８",
+                                        "ignoreCase": false,
+                                        "replacement": "八"
+                                    },
+                                    {
+                                        "pattern": "9|９",
+                                        "ignoreCase": false,
+                                        "replacement": "九"
+                                    },
+                                    {
+                                        "pattern": "・|、|\\-|\\.|‐|\\s",
+                                        "ignoreCase": false,
+                                        "replacement": ""
+                                    },
+                                    {
+                                        "pattern": "(.)々",
+                                        "ignoreCase": false,
+                                        "replacement": "$1$1"
+                                    }
+                                ]
+                            ]
+                        },
+                        "searchResolution": "letter"
+                    },
+                    "dictionaries": [
+                        {
+                            "name": "どんなときどう使う 日本語表現文型辞典",
+                            "alias": "どんなとき",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "collapsed",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "日本語文法辞典(全集)",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "collapsed",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "alias": "文法辞典"
+                        },
+                        {
+                            "name": "Bunpro Dictionary",
+                            "alias": "Bunpro",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "collapsed",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "JLPT文法解説まとめ",
+                            "alias": "JLPT文法解説",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "collapsed",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "JMdict [2026-08-04]",
+                            "alias": "JMdict",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": "span[title] {\n    cursor: help;\n}\n\nul[data-sc-content=\"sense-groups\"] {\n    list-style-type: \"＊\";\n}\n\nli[data-sc-content=\"sense-group\"],\nli[data-sc-content=\"forms\"] {\n    padding-left: 0.25em;\n}\n\ndiv[data-sc-content=\"sense-group\"],\nli[data-sc-content=\"sense-group\"]:first-child {\n    margin-top: 0.1em;\n}\n\nli[data-sc-content=\"sense-group\"] + li[data-sc-content=\"sense-group\"],\ndiv[data-sc-content=\"forms\"],\nli[data-sc-content=\"forms\"] {\n    margin-top: 0.5em;\n}\n\nli[data-sc-content=\"sense\"] {\n    padding-left: 0.25em;\n    & ul[data-sc-content=\"glossary\"] {\n        list-style-type: none;\n        padding-left: 0.25em;\n    }\n}\n\nspan[data-sc-class=\"tag\"] {\n    border-radius: 0.3em;\n    font-size: 0.8em;\n    font-weight: bold;\n    margin-right: 0.5em;\n    padding: 0.2em 0.3em;\n    vertical-align: text-bottom;\n    word-break: keep-all;\n}\n\nspan[data-sc-content=\"part-of-speech-info\"] {\n    background-color: #565656;\n    color: white;\n}\n\nspan[data-sc-content=\"misc-info\"] {\n    background-color: brown;\n    color: white;\n}\n\nspan[data-sc-content=\"field-info\"] {\n    background-color: purple;\n    color: white;\n}\n\nspan[data-sc-content=\"dialect-info\"] {\n    background-color: green;\n    color: white;\n}\n\nspan[data-sc-content=\"lang-source-wasei\"] {\n    background-color: orange;\n    color: black;\n    margin-left: 0.5em;\n    margin-right: 0;\n}\n\nspan[data-sc-content=\"forms-label\"] {\n    background-color: #565656;\n    color: white;\n}\n\nul[data-sc-content=\"glossary\"] {\n    list-style-type: disc;\n}\n\nspan[data-sc-content=\"registered-trademark\"] {\n    vertical-align: super;\n    font-size: 0.6em;\n}\n\ndiv[data-sc-class=\"extra-box\"] {\n    border-radius: 0.4rem;\n    border-style: none none none solid;\n    border-width: calc(3em / var(--font-size-no-units, 14));\n    margin-bottom: 0.5rem;\n    margin-top: 0.5rem;\n    padding: 0.5rem;\n    width: fit-content;\n}\n\ndiv[data-sc-class=\"extra-content\"] {\n    margin-left: 0.5rem;\n}\n\ndiv[data-sc-content=\"info-gloss\"] {\n    border-color: green;\n    background-color: color-mix(in srgb, green 5%, transparent);\n}\n\ndiv[data-sc-content=\"sense-note\"] {\n    border-color: goldenrod;\n    background-color: color-mix(in srgb, goldenrod 5%, transparent);\n}\n\ndiv[data-sc-content=\"lang-source\"] {\n    border-color: purple;\n    background-color: color-mix(in srgb, purple 5%, transparent);\n}\n\ndiv[data-sc-content=\"xref\"] {\n    border-color: #1A73E8;\n    background-color: color-mix(in srgb, #1A73E8 5%, transparent);\n    & span[data-sc-content=\"reference-label\"] {\n        color: #1A73E8;\n    }\n}\n\ndiv[data-sc-content=\"antonym\"] {\n    border-color: brown;\n    background-color: color-mix(in srgb, brown 5%, transparent);\n    & span[data-sc-content=\"reference-label\"] {\n        color: brown;\n    }\n}\n\ndiv[data-sc-content=\"example-sentence\"] {\n    border-color: var(--text-color, var(--fg, #333));\n    background-color: color-mix(in srgb, var(--text-color, var(--fg, #333)) 5%, transparent);\n}\n\ndiv[data-sc-content=\"extra-info\"] {\n    margin-left: 0.5em;\n}\n\ndiv[data-sc-class=\"extra-label\"] {\n    color: #777;\n    font-size: 0.8em;\n    font-style: italic;\n}\n\nspan[data-sc-content=\"reference-label\"] {\n    font-size: 0.8em;\n    margin-right: 0.5rem;\n}\n\ndiv[data-sc-content=\"xref-content\"],\ndiv[data-sc-content=\"antonym-content\"] {\n    font-size: 1.3em;\n}\n\ndiv[data-sc-content=\"xref-glossary\"],\ndiv[data-sc-content=\"antonym-glossary\"] {\n    font-size: 0.8rem;\n}\n\ndiv[data-sc-content=\"example-sentence-a\"] {\n    font-size: 1.3em;\n}\n\ndiv[data-sc-content=\"example-sentence-b\"] {\n    font-size: 0.8em;\n}\n\nspan[data-sc-content=\"example-keyword\"] {\n    color: color-mix(in srgb, lime, var(--text-color, var(--fg, #333)));\n}\n\nspan[data-sc-content=\"attribution-footnote\"] {\n    color: #777;\n    font-size: 0.8em;\n    margin-left: 0.25rem;\n    vertical-align: top;\n}\n\ndiv[data-sc-content=\"graphic\"] {\n    margin-bottom: 0.5rem;\n    margin-top: 0.5rem;\n    & .gloss-image-container {\n        border: solid calc(42em / var(--font-size-no-units, 14)) var(--text-color, var(--fg, #333));\n        border-radius: 3%;\n    }\n}\n\ndiv[data-sc-content=\"graphic-attribution\"] {\n    font-size: 70%;\n    margin-top: 0.25rem;\n}\n\n/* The \"forms\" section may be contained in a <div> or a <li> depending on the content of the entry. */\ndiv[data-sc-content=\"forms\"],\nli[data-sc-content=\"forms\"] {\n    & ul {\n        font-size: 1.2em;\n        list-style-type: circle;\n    }\n    & table {\n        margin-top: 0.2em;\n    }\n    & tr {\n        border-width: 1px;\n    }\n    & th {\n        border-width: 1px;\n        font-weight: normal;\n        text-align: left;\n    }\n    & td {\n        border-width: 1px;\n        text-align: center;\n        & span {\n            clip-path: circle();\n            display: block;\n            font-weight: bold;\n            padding: 0 0.5em;\n        }\n    }\n}\n\n/* For the display of sense number restrictions in forms tables */\nth[data-sc-content=\"forms-row-senses\"],\ntr[data-sc-content=\"forms-col-senses-row\"] th {\n    text-align: center;\n}\n\ntr[data-sc-content=\"forms-header-row\"] th {\n    font-size: 1.2em;\n    text-align: center;\n    vertical-align: text-bottom;\n    & span[data-sc-class=\"old-character\"] {\n        text-emphasis-style: dot;\n    }\n}\n\nspan[data-sc-class=\"form-special\"] {\n    color: crimson;\n}\n\ntd[data-sc-class=\"form-pri\"] > span {\n    color: white;\n    background: radial-gradient(green 50%, white 100%);\n    &::before {\n        content: \"△\";\n    }\n}\n\ntd[data-sc-class=\"form-irr\"] > span {\n    color: white;\n    background: radial-gradient(crimson 50%, white 100%);\n    &::before {\n        content: \"✕\";\n    }\n}\n\ntd[data-sc-class=\"form-out\"] > span {\n    color: white;\n    background: radial-gradient(blue 50%, white 100%);\n    &::before {\n        content: \"古\";\n    }\n}\n\ntd[data-sc-class=\"form-old\"] > span {\n    color: white;\n    background: radial-gradient(blue 50%, white 100%);\n    &::before {\n        content: \"旧\";\n    }\n}\n\ntd[data-sc-class=\"form-rare\"] > span {\n    color: white;\n    background: radial-gradient(purple 50%, white 100%);\n    &::before {\n        content: \"▽\";\n    }\n}\n\ntd[data-sc-class=\"form-valid\"] > span {\n    color: var(--background-color, var(--canvas, #f8f9fa));\n    background: radial-gradient(var(--text-color, var(--fg, #333)) 50%, white 100%);\n    &::before {\n        content: \"◇\";\n    }\n}\n\ndiv[data-sc-content=\"attribution\"] {\n    font-size: 0.7em;\n    text-align: right;\n}\n\ndiv[data-sc-content=\"redirect-glossary\"] {\n    font-size: 180%;\n    margin-top: 0.2em;\n}\n",
+                            "name": "Jitendex.org [2026-07-09]",
+                            "alias": "Jitendex"
+                        },
+                        {
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": "",
+                            "name": "Scripting Japan (Slang)",
+                            "alias": "Scripting Japan (Slang)"
+                        },
+                        {
+                            "name": "新和英大辞典 第5版",
+                            "alias": "新和英大辞典",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "collapsed",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": "[data-sc-headword]{font-size:1.1em;font-weight:700}[data-sc-headword][data-sc表記]{font-weight:400}[data-sc-complex-g]{margin-top:1em}[data-sc-sub-item-c]{margin-left:.8em}[data-sc-subheadword]{font-weight:700}[data-sc-meaning-g][data-sc-l1]{margin-top:.5em}[data-sc-meaning-g][data-sc-l2],[data-sc-meaning-g][data-sc-l3]{margin-top:1em;margin-left:.8em}[data-sc-meaning-g][data-sc-no-t-m]{margin-top:.3em}[data-sc-meaning][data-sc活用-t-m]{margin-top:.4em}[data-sc-meaning][data-sc協力]{margin-top:1.6em}[data-sc-example]{margin-top:.6em;margin-bottom:.5em;margin-left:.8em}[data-sc用例]{color:var(--accent-color,var(--accent-card,#2967cc))}[data-sc-column]{margin-top:.6em;margin-bottom:.6em;padding:.25em .5em;border:solid 1px var(--text-color-light2,var(--scrollbar-bg-hover,#666666))}[data-sc-num]{padding:.075em .25em .03em;font-weight:700;font-size:1em;color:var(--background-color,white);background-color:var(--text-color,var(--fg,black));text-decoration:none;word-break:keep-all;vertical-align:.1em;border-radius:.2em;margin-right:.1em}[data-sc-glabel],[data-sc-slabel],[data-sc-alabel]{margin-left:.05em;margin-right:.05em;font-weight:400;font-size:.9em}[data-sc-pron]{font-weight:400;font-style:normal;color:var(--text-color,var(--fg,black));word-break:keep-all}[data-sc-pron] [data-sc-i]{font-style:italic;font-weight:400}[data-sc-pron-s]{font-weight:400;margin-right:.05em}[data-sc-pron-e]{font-weight:400;margin-left:.05em}[data-sc-mlg-g]{font-weight:400;font-style:normal}[data-sc-mlg]{font-size:.66em;vertical-align:.3em}[data-sc-sc]{font-variant:small-caps}[data-sc-hsup]{margin-left:.1em;font-size:.6em;font-weight:400;vertical-align:1.7em}[data-sc-sup],[data-sc-sub]{font-weight:400}[data-sc-sub][data-sc-c-l]{font-size:.6em}[data-sc-v-line]{vertical-align:.15em}[data-sc-b-triangle]{font-size:.95em;margin-left:.05em;margin-right:.1em}[data-sc-w-triangle]{font-size:.9em;margin-left:.053em;margin-right:.11em}[data-sc-graphic]{margin:.5em .8em}a{padding-bottom:.1em;text-decoration:none;border-bottom:solid .05em var(--accent-color,var(--accent-card,#2967cc))}a:link{color:var(--accent-color,var(--accent-card,#2967cc));text-decoration:none}a:hover{color:var(--text-color,var(--fg,black));filter:brightness(1.3);text-decoration:underline;text-decoration-color:oklch(65% .2 260)}.gloss-image-link{filter:none!important}[data-sc-img] a{padding-bottom:0!important;border-bottom:none!important}.gloss-sc-details{padding-left:0}details{margin:.1em 0}details summary{color:var(--text-color-light4,var(--fg-faint,#777777));cursor:pointer;user-select:none;list-style:none;cursor:pointer;padding:.1em 0;transition:color 0.15s ease}details summary:hover{color:var(--text-color-light2,var(--fg-subtle,#666666))}details[open] summary{color:var(--text-color,var(--fg,black));margin-bottom:.3em}details summary::marker{content:\"\"}details summary::before{content:\"▸\";display:inline-block;width:.75em;margin-right:.3em;color:var(--text-color-light4,var(--scrollbar-bg-hover,#666666));transform:translateY(.05em)}details[open] summary::before{content:\"▾\"}details>*:not(summary){margin-left:.9em;padding-left:.5em;border-left:1px solid var(--border-color-light,var(--scrollbar-bg-hover,#666666))}"
+                        },
+                        {
+                            "name": "NEW斎藤和英大辞典",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "collapsed",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "alias": "斎藤"
+                        },
+                        {
+                            "name": "Babylon Japanese-English v3",
+                            "alias": "Babylon",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "collapsed",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "surasura 擬声語",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "collapsed",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "alias": "surasura"
+                        },
+                        {
+                            "name": "Onomatoproject",
+                            "alias": "Onomatoproject",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "collapsed",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "数え方辞典オンライン",
+                            "alias": "数え方辞典オンライン",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": "",
+                            "name": "Pixiv Light [2026-06-27]",
+                            "alias": "Pixiv"
+                        },
+                        {
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": "",
+                            "name": "JMnedict [2026-06-27]",
+                            "alias": "JMnedict"
+                        },
+                        {
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": "",
+                            "name": "KANJIDIC [2026-209]",
+                            "alias": "KANJIDIC"
+                        },
+                        {
+                            "name": "JLPT",
+                            "alias": "JLPT",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "TMW v2",
+                            "alias": "TMW",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": "",
+                            "name": "Jiten",
+                            "alias": "Jiten"
+                        },
+                        {
+                            "name": "NHK",
+                            "alias": "NHK",
+                            "enabled": true,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        },
+                        {
+                            "name": "NHK-pitch",
+                            "alias": "NHK-pitch",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ".gloss-content span,\n[data-sc-content] span {\n  text-wrap: pretty;\n}\n\n.gloss-content span[data-sc-devoice=\"true\"],\n[data-sc-content] span[data-sc-devoice=\"true\"] {\n  display: inline-block;\n  min-width: 1.05em;\n  height: 1.05em;\n  line-height: 1;\n  text-align: center;\n  border: 1px dashed currentColor;\n  border-radius: 999px;\n  box-sizing: border-box;\n  margin-left: 0.03em;\n  margin-right: 0.03em;\n}\n\n.gloss-content span[data-sc-agent-recovery=\"true\"],\n[data-sc-content] span[data-sc-agent-recovery=\"true\"] {\n  display: inline-block;\n  align-items: center;\n  text-align: center;\n  width: 1.15em;\n  height: 1.15em;\n  margin-left: 0.35em;\n  line-height: 1.25em;\n  vertical-align: middle;\n  border: 1px solid currentColor;\n  border-radius: 999px;\n  box-sizing: border-box;\n  color: #b36b00;\n  font-size: 0.78em;\n  font-weight: 700;\n  cursor: help;\n  transform: translateY(-3px);\n}\n\n.gloss-content [data-sc-definition-root=\"true\"],\n[data-sc-content] [data-sc-definition-root=\"true\"] {\n  font-size: 0.95em;\n}\n\n.gloss-content [data-sc-definition-heading=\"true\"],\n[data-sc-content] [data-sc-definition-heading=\"true\"] {\n  margin-top: 0.5em;\n}\n\n.gloss-content span[data-sc-pitch-mark=\"true\"],\n[data-sc-content] span[data-sc-pitch-mark=\"true\"] {\n  margin-left: 0.15em;\n  margin-right: 0.15em;\n  font-weight: 700;\n  color: #ff6666;\n}\n\n.gloss-content span[data-sc-variant-label=\"true\"],\n[data-sc-content] span[data-sc-variant-label=\"true\"] {\n  font-size: 0.78em;\n  font-weight: 500;\n  border: 1px solid gray;\n  border-radius: 5px;\n  padding: 2px;\n  text-align: center;\n  display: inline-flex;\n  height: 12px;\n  background: #e9e3e3;\n}\n\n.gloss-content span[data-sc-muted=\"true\"],\n.gloss-content span[data-sc-pitch-position=\"true\"],\n[data-sc-content] span[data-sc-muted=\"true\"],\n[data-sc-content] span[data-sc-pitch-position=\"true\"] {\n  color: currentColor;\n}\n\n.gloss-content ul[data-sc-accent-list=\"true\"],\n[data-sc-content] ul[data-sc-accent-list=\"true\"] {\n  margin-top: 0.15em;\n  margin-bottom: 0;\n  padding-left: 1.35em;\n}\n\n.gloss-content ul[data-sc-pitch-examples=\"true\"],\n[data-sc-content] ul[data-sc-pitch-examples=\"true\"] {\n  margin-top: 0.15em;\n  margin-bottom: 0;\n  padding-left: 1.35em;\n}\n\n.gloss-content table[data-sc-numeric-children=\"true\"],\n.gloss-content table[data-sc-attached-suffix-children=\"true\"],\n.gloss-content table[data-sc-conjugation-table=\"true\"],\n.gloss-content table[data-sc-suffix-examples=\"true\"],\n[data-sc-content] table[data-sc-numeric-children=\"true\"],\n[data-sc-content] table[data-sc-attached-suffix-children=\"true\"],\n[data-sc-content] table[data-sc-conjugation-table=\"true\"],\n[data-sc-content] table[data-sc-suffix-examples=\"true\"] {\n  margin-top: 0.15em;\n  border-collapse: collapse;\n  table-layout: fixed;\n  width: 100%;\n  margin-bottom: 0.5em;\n}\n\n.gloss-content table[data-sc-numeric-children=\"true\"] th,\n.gloss-content table[data-sc-numeric-children=\"true\"] td,\n.gloss-content table[data-sc-attached-suffix-children=\"true\"] th,\n.gloss-content table[data-sc-attached-suffix-children=\"true\"] td,\n.gloss-content table[data-sc-conjugation-table=\"true\"] th,\n.gloss-content table[data-sc-conjugation-table=\"true\"] td,\n.gloss-content table[data-sc-suffix-examples=\"true\"] th,\n.gloss-content table[data-sc-suffix-examples=\"true\"] td,\n[data-sc-content] table[data-sc-numeric-children=\"true\"] th,\n[data-sc-content] table[data-sc-numeric-children=\"true\"] td,\n[data-sc-content] table[data-sc-attached-suffix-children=\"true\"] th,\n[data-sc-content] table[data-sc-attached-suffix-children=\"true\"] td,\n[data-sc-content] table[data-sc-conjugation-table=\"true\"] th,\n[data-sc-content] table[data-sc-conjugation-table=\"true\"] td,\n[data-sc-content] table[data-sc-suffix-examples=\"true\"] th,\n[data-sc-content] table[data-sc-suffix-examples=\"true\"] td {\n  box-sizing: border-box;\n  padding: 0.15em 0.45em;\n  vertical-align: top;\n}\n\n.gloss-content table[data-sc-numeric-children=\"true\"] th,\n.gloss-content table[data-sc-attached-suffix-children=\"true\"] th,\n.gloss-content table[data-sc-conjugation-table=\"true\"] th,\n.gloss-content table[data-sc-suffix-examples=\"true\"] th,\n[data-sc-content] table[data-sc-numeric-children=\"true\"] th,\n[data-sc-content] table[data-sc-attached-suffix-children=\"true\"] th,\n[data-sc-content] table[data-sc-conjugation-table=\"true\"] th,\n[data-sc-content] table[data-sc-suffix-examples=\"true\"] th {\n  text-align: left;\n}\n\n.gloss-content table[data-sc-suffix-examples=\"true\"] th,\n.gloss-content table[data-sc-suffix-examples=\"true\"] td,\n[data-sc-content] table[data-sc-suffix-examples=\"true\"] th,\n[data-sc-content] table[data-sc-suffix-examples=\"true\"] td {\n  overflow-wrap: anywhere;\n  word-break: normal;\n}\n\n.gloss-content table[data-sc-numeric-children=\"true\"] th:first-child,\n.gloss-content table[data-sc-numeric-children=\"true\"] td:first-child,\n.gloss-content table[data-sc-attached-suffix-children=\"true\"] th:first-child,\n.gloss-content table[data-sc-attached-suffix-children=\"true\"] td:first-child,\n[data-sc-content] table[data-sc-numeric-children=\"true\"] th:first-child,\n[data-sc-content] table[data-sc-numeric-children=\"true\"] td:first-child,\n[data-sc-content] table[data-sc-attached-suffix-children=\"true\"] th:first-child,\n[data-sc-content] table[data-sc-attached-suffix-children=\"true\"] td:first-child {\n  width: 4.5em;\n  white-space: nowrap;\n}\n\n.gloss-content table[data-sc-conjugation-table=\"true\"] th:first-child,\n.gloss-content table[data-sc-conjugation-table=\"true\"] td:first-child,\n[data-sc-content] table[data-sc-conjugation-table=\"true\"] th:first-child,\n[data-sc-content] table[data-sc-conjugation-table=\"true\"] td:first-child {\n  width: 7.5em;\n  white-space: nowrap;\n}\n\n.gloss-content table[data-sc-suffix-examples=\"true\"] th:first-child,\n.gloss-content table[data-sc-suffix-examples=\"true\"] td:first-child,\n[data-sc-content] table[data-sc-suffix-examples=\"true\"] th:first-child,\n[data-sc-content] table[data-sc-suffix-examples=\"true\"] td:first-child {\n  width: 5.5em;\n}\n\n.gloss-content table[data-sc-suffix-examples=\"true\"] th:nth-child(2),\n.gloss-content table[data-sc-suffix-examples=\"true\"] td:nth-child(2),\n[data-sc-content] table[data-sc-suffix-examples=\"true\"] th:nth-child(2),\n[data-sc-content] table[data-sc-suffix-examples=\"true\"] td:nth-child(2) {\n  width: 10em;\n}\n\n.gloss-content details[data-sc-numeric-children-more=\"true\"],\n.gloss-content details[data-sc-attached-suffix-children-details=\"true\"],\n.gloss-content details[data-sc-suffix-examples-details=\"true\"],\n[data-sc-content] details[data-sc-numeric-children-more=\"true\"],\n[data-sc-content] details[data-sc-attached-suffix-children-details=\"true\"],\n[data-sc-content] details[data-sc-suffix-examples-details=\"true\"] {\n  margin-top: 0.15em;\n}\n\n.gloss-content details[data-sc-numeric-children-more=\"true\"] table[data-sc-numeric-children=\"true\"],\n[data-sc-content] details[data-sc-numeric-children-more=\"true\"] table[data-sc-numeric-children=\"true\"] {\n  margin-left: -1.35em;\n  width: calc(100% + 1.35em);\n}\n\n.gloss-content details[data-sc-attached-suffix-children-details=\"true\"] table[data-sc-attached-suffix-children=\"true\"],\n[data-sc-content] details[data-sc-attached-suffix-children-details=\"true\"] table[data-sc-attached-suffix-children=\"true\"] {\n  margin-left: -1.35em;\n  width: calc(100% + 1.35em);\n}\n\n.gloss-content details[data-sc-suffix-examples-details=\"true\"] table[data-sc-suffix-examples=\"true\"],\n[data-sc-content] details[data-sc-suffix-examples-details=\"true\"] table[data-sc-suffix-examples=\"true\"] {\n  margin-left: -1.35em;\n  width: calc(100% + 1.35em);\n}\n\n.gloss-content details[data-sc-numeric-children-more=\"true\"] summary,\n.gloss-content details[data-sc-attached-suffix-children-details=\"true\"] summary,\n.gloss-content details[data-sc-suffix-examples-details=\"true\"] summary,\n[data-sc-content] details[data-sc-numeric-children-more=\"true\"] summary,\n[data-sc-content] details[data-sc-attached-suffix-children-details=\"true\"] summary,\n[data-sc-content] details[data-sc-suffix-examples-details=\"true\"] summary {\n  cursor: pointer;\n  font-size: 0.9em;\n}\n"
+                        },
+                        {
+                            "name": "大辞泉",
+                            "alias": "大辞泉",
+                            "enabled": false,
+                            "allowSecondarySearches": false,
+                            "definitionsCollapsible": "not-collapsible",
+                            "partsOfSpeechFilter": true,
+                            "useDeinflections": true,
+                            "styles": ""
+                        }
+                    ],
+                    "parsing": {
+                        "enableScanningParser": false,
+                        "enableMecabParser": true,
+                        "selectedParser": "mecab-unidic-mecab-translate",
+                        "termSpacing": true,
+                        "readingMode": "hiragana"
+                    },
+                    "anki": {
+                        "enable": true,
+                        "server": "http://127.0.0.1:8765",
+                        "tags": [
+                            "yomitan"
+                        ],
+                        "screenshot": {
+                            "format": "jpeg",
+                            "quality": 100
+                        },
+                        "duplicateScope": "collection",
+                        "duplicateScopeCheckAllModels": false,
+                        "checkForDuplicates": true,
+                        "fieldTemplates": null,
+                        "suspendNewCards": false,
+                        "noteGuiMode": "browse",
+                        "apiKey": "",
+                        "downloadTimeout": 0,
+                        "duplicateBehavior": "overwrite",
+                        "displayTagsAndFlags": "never",
+                        "cardFormats": [
+                            {
+                                "name": "Expression",
+                                "icon": "big-circle",
+                                "deck": "Mining",
+                                "model": "Lapis",
+                                "fields": {
+                                    "Expression": {
+                                        "value": "{expression}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "ExpressionFurigana": {
+                                        "value": "{furigana-plain}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "ExpressionReading": {
+                                        "value": "{reading}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "ExpressionAudio": {
+                                        "value": "{audio}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "SelectionText": {
+                                        "value": "{popup-selection-text}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "MainDefinition": {
+                                        "value": "{single-glossary-jmdict-2025-11-04}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Sentence": {
+                                        "value": "{cloze-prefix}<b>{cloze-body}</b>{cloze-suffix}",
+                                        "overwriteMode": "coalesce-new"
+                                    },
+                                    "SentenceFurigana": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "SentenceAudio": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Picture": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Glossary": {
+                                        "value": "{glossary}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Hint": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "IsWordAndSentenceCard": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "IsClickCard": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "IsSentenceCard": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "PitchPosition": {
+                                        "value": "{pitch-accent-positions}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "PitchCategories": {
+                                        "value": "{pitch-accent-categories}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "Frequency": {
+                                        "value": "{frequencies}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "FreqSort": {
+                                        "value": "{frequency-harmonic-rank}",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "MiscInfo": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "IsAudioCard": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    },
+                                    "DefinitionPicture": {
+                                        "value": "",
+                                        "overwriteMode": "coalesce"
+                                    }
+                                },
+                                "type": "term"
+                            },
+                            {
+                                "name": "Kanji",
+                                "icon": "big-circle",
+                                "deck": "",
+                                "model": "",
+                                "fields": {},
+                                "type": "kanji"
+                            }
+                        ],
+                        "targetTags": [],
+                        "forceSync": false,
+                        "noteDupeCheckFirst": false
+                    },
+                    "sentenceParsing": {
+                        "scanExtent": 200,
+                        "terminationCharacterMode": "custom",
+                        "terminationCharacters": [
+                            {
+                                "enabled": true,
+                                "character1": "「",
+                                "character2": "」",
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": false
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "『",
+                                "character2": "』",
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": false
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "\"",
+                                "character2": "\"",
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": false
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "'",
+                                "character2": "'",
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": false
+                            },
+                            {
+                                "enabled": true,
+                                "character1": ".",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "!",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "?",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "．",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "。",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "！",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "？",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "…",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "︒",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "︕",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "︖",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "︙",
+                                "character2": null,
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": true
+                            },
+                            {
+                                "enabled": true,
+                                "character1": "〈",
+                                "character2": "〉",
+                                "includeCharacterAtStart": false,
+                                "includeCharacterAtEnd": false
+                            }
+                        ]
+                    },
+                    "inputs": {
+                        "hotkeys": [
+                            {
+                                "action": "close",
+                                "argument": "",
+                                "key": "Escape",
+                                "modifiers": [],
+                                "scopes": [
+                                    "popup"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "focusSearchBox",
+                                "argument": "",
+                                "key": "Escape",
+                                "modifiers": [],
+                                "scopes": [
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "previousEntry",
+                                "argument": "3",
+                                "key": "PageUp",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "nextEntry",
+                                "argument": "3",
+                                "key": "PageDown",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "lastEntry",
+                                "argument": "",
+                                "key": "End",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "firstEntry",
+                                "argument": "",
+                                "key": "Home",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "previousEntry",
+                                "argument": "1",
+                                "key": "ArrowUp",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "nextEntry",
+                                "argument": "1",
+                                "key": "ArrowDown",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "historyBackward",
+                                "argument": "",
+                                "key": "KeyB",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "historyForward",
+                                "argument": "",
+                                "key": "KeyF",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "addNote",
+                                "argument": "1",
+                                "key": "KeyK",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "addNote",
+                                "argument": "0",
+                                "key": "KeyE",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "addNote",
+                                "argument": "1",
+                                "key": "KeyR",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "playAudio",
+                                "argument": "",
+                                "key": "KeyP",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "viewNotes",
+                                "argument": "0",
+                                "key": "KeyV",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "copyHostSelection",
+                                "argument": "",
+                                "key": "KeyC",
+                                "modifiers": [
+                                    "ctrl"
+                                ],
+                                "scopes": [
+                                    "popup"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "action": "profilePrevious",
+                                "key": "Minus",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search",
+                                    "web"
+                                ],
+                                "enabled": true,
+                                "argument": ""
+                            },
+                            {
+                                "action": "profileNext",
+                                "key": "Equal",
+                                "modifiers": [
+                                    "alt"
+                                ],
+                                "scopes": [
+                                    "popup",
+                                    "search",
+                                    "web"
+                                ],
+                                "enabled": true,
+                                "argument": ""
+                            }
+                        ]
+                    },
+                    "clipboard": {
+                        "enableBackgroundMonitor": false,
+                        "enableSearchPageMonitor": true,
+                        "autoSearchContent": true,
+                        "maximumSearchLength": 1000
+                    },
+                    "accessibility": {
+                        "forceGoogleDocsHtmlRendering": true
+                    }
+                },
+                "id": "profile-0"
+            }
+        ],
+        "profileCurrent": 0,
+        "global": {
+            "database": {
+                "prefixWildcardsSupported": false
+            },
+            "dataTransmissionConsentShown": false
+        }
+    }
+}

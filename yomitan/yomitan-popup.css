@@ -186,12 +186,31 @@
   [style*="color: rgb(229, 0, 127)"] {
     color: #f5c2e7 !important;
   }
+
+  [style*="color: rgb(255, 255, 255)"][style*="background-color: rgb(92, 107, 192)"] {
+    color: #11111b !important;
+    background-color: #cba6f7 !important;
+  }
+
+  [style*="color: rgb(255, 255, 255)"][style*="background-color: rgb(76, 175, 80)"] {
+    background-color: #a6e3a1 !important;
+    color: #11111b !important;
+  }
+
+  [style*="color: rgb(224, 224, 224)"] {
+    color: #cdd6f4 !important;
+  }
 }
 
 [data-dictionary^="Jitendex"] [data-sc-content="attribution"],
 [data-dictionary^="Jitendex"] [data-sc-content="forms"],
 [data-dictionary^="どんなとき"] .tag:first-child,
-[data-dictionary^="Living Japanese Slang"] .tag:first-child {
+[data-dictionary^="Scripting Japan (Slang)"] .gloss-sc-div:has(> .gloss-link),
+[data-sc-content="attribution-footnote"],
+[data-dictionary^="Scripting Japan (Slang)"]
+  [style="font-weight: bold; font-size: 1.2em; color: rgb(224, 224, 224); margin-bottom: 10px;"],
+[data-dictionary^="JMdict"] .tag[title^="JMdict Sense"],
+[data-dictionary^="JMdict"]:has(.tag[title="other surface forms and readings"]) {
   display: none !important;
 }
 
@@ -221,14 +240,50 @@ div[data-sc-content="antonym-content"] {
   font-size: 1.5em !important;
 }
 
-.inflection-rule-chains {
-  display: flex;
-  gap: 5px;
-}
-
 div[data-sc-content="example-sentence-a"],
 div[data-sc-content="xref-content"] {
   font-size: 1em !important;
+}
+
+[data-dictionary="Scripting Japan (Slang)"] {
+  [style="margin-bottom: 12px;"] {
+    margin-bottom: 0 !important;
+  }
+
+  [style="margin-left: 20px; margin-bottom: 14px;"] {
+    margin-left: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  [style="margin-top: 8px; margin-left: 8px; margin-bottom: 12px;"] {
+    margin: 0 8px 0 !important;
+  }
+
+  [style="font-style: italic; font-size: 13px; margin-top: 6px; margin-left: 32px;"] {
+    margin-top: 0 !important;
+  }
+
+  [style="font-size: 13px; margin-top: 8px; padding-left: 12px;"] {
+    margin-top: 2px !important;
+    padding-left: 8px !important;
+    padding-right: 8px;
+  }
+}
+
+[style="font-weight: bold; font-size: 13px; color: rgb(255, 255, 255); background-color: rgb(92, 107, 192); padding: 3px 8px;"] {
+  border-radius: var(--tag-border-radius);
+  font-size: var(--tag-font-size) !important;
+  font-weight: var(--tag-font-weight) !important;
+  padding: calc(2.5em / var(--font-size-no-units)) 0.375em calc(2.5em / var(--font-size-no-units))
+    0.375em !important;
+}
+
+[style="font-weight: bold; font-size: 12px; color: rgb(255, 255, 255); background-color: rgb(76, 175, 80); margin-right: 8px; padding: 2px 6px;"] {
+  border-radius: var(--tag-border-radius);
+  font-size: var(--tag-font-size) !important;
+  font-weight: var(--tag-font-weight) !important;
+  padding: calc(2.5em / var(--font-size-no-units)) 0.375em calc(2.5em / var(--font-size-no-units))
+    0.375em !important;
 }
 
 /* Heiban */
